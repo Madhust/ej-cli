@@ -1,7 +1,8 @@
 {
-    "name": "madhu-test",
+    "name": "ej-cli",
     "version": "0.0.1",
-    "author": "Madhu",
+    "author": "Madhu Sudhanan",
+    "description": "A cli for creating Syncfusion JS components demo",
     "scripts": {
         "tsc":"node node_modules\\typescript\\bin\\tsc",
       "postinstall": "npm run tsc"  
