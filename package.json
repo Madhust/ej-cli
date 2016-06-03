@@ -1,0 +1,19 @@
+{
+    "name": "madhu-test",
+    "version": "0.0.1",
+    "author": "Madhu",
+    "scripts": {
+        "tsc":"node node_modules\\typescript\\bin\\tsc",
+      "postinstall": "npm run tsc"  
+    },
+    "bin":{
+       "madhu-test": "index.js" 
+    },
+    "dependencies": {
+        "commander":"^2.9.0"        
+    },    
+    "devDependencies": {
+        "typescript": "^1.8.10",
+        "typings": "^1.0.4"
+    }
+}
