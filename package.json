@@ -1,20 +1,24 @@
 {
-    "name": "ej-cli",
-    "version": "0.0.1",
-    "author": "Madhu Sudhanan",
-    "description": "A cli for creating Syncfusion JS components demo",
-    "scripts": {
-        "tsc":"node node_modules\\typescript\\bin\\tsc",
-      "postinstall": "npm run tsc"  
-    },
-    "bin":{
-       "madhu-test": "index.js" 
-    },
-    "dependencies": {
-        "commander":"^2.9.0"        
-    },    
-    "devDependencies": {
-        "typescript": "^1.8.10",
-        "typings": "^1.0.4"
-    }
+  "name": "mt",
+  "version": "0.0.1",
+  "author": "Madhu",
+  "scripts": {
+    "tsc": "node node_modules\\typescript\\bin\\tsc",
+    "prepublish": "npm run tsc"
+  },
+  "bin": {
+    "mt": "main.js"
+  },  
+  "devDependencies": {
+    "typescript": "^1.8.10"
+  },
+  "dependencies": {
+      "pug":"2.0.0-beta2"
+  },
+  "preferGlobal": true,
+  "keywords": [
+    "ej", "ej-cli", "syncfusion","samplecreator"
+  ],
+  "description": "A command line interface for Syncfusion ej components",
+  "license": "MIT"   
 }
