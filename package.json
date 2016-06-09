@@ -1,5 +1,5 @@
 {
-  "name": "mt",
+  "name": "ej-cli",
   "version": "0.0.1",
   "author": "Madhu",
   "scripts": {
@@ -7,7 +7,7 @@
     "prepublish": "npm run tsc"
   },
   "bin": {
-    "mt": "main.js"
+    "ej-cli": "main.js"
   },  
   "devDependencies": {
     "typescript": "^1.8.10"
