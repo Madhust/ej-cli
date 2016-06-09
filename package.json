@@ -19,6 +19,6 @@
   "keywords": [
     "ej", "ej-cli", "syncfusion","samplecreator"
   ],
-  "description": "A command line interface for Syncfusion ej components",
+  "description": "A command line interface for Syncfusion ej components. \n Under Development Stay tuned...",
   "license": "MIT"   
 }
