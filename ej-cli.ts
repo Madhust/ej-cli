@@ -1,5 +1,6 @@
 import {ShellExec} from './shell-exec';
 import {ArgumentParser} from './argument-parser';
+import {TemplateRenderer} from './template-renderer';
 import {Args} from './application';
 
 export /**
@@ -8,9 +9,13 @@ export /**
 class EjCli {
     opts:Args;
     shell: ShellExec;
+    template: TemplateRenderer;
+    args: ArgumentParser;
     constructor(parameters) {
-       this.opts  = new ArgumentParser(process.argv).option;
-       this.shell = new ShellExec(); 
+       this.args  = new ArgumentParser(process.argv)
+       this.opts = this.args.option;        
+       this.template = new TemplateRenderer(this.args);
+       this.shell = new ShellExec(this.template);
     }
     
     performAction(){

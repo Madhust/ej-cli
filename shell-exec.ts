@@ -2,10 +2,12 @@
 
 import child_process = require("child_process");
 import {INSTALLED_LOCATION, PRO_BAT} from './application';
+import {TemplateRenderer} from './template-renderer';
 
 export class ShellExec {
-    
-    constructor(){             
+    template: TemplateRenderer;
+    constructor(private tmpl: TemplateRenderer){             
+      this.template = tmpl;
     }
     
     createProject(name: string, version?: string, controlList?: Array<string>){
@@ -14,6 +16,7 @@ export class ShellExec {
                 console.log(err);
                 return;
             }
+            this.template.renderIndex();
             console.log(stdout);            
         });       
     }

@@ -1,0 +1,21 @@
+{
+    "requireGlobalize":true,
+    "requireExtension": false,
+    "useCDN": false,
+    "theme":"flat-azure",    
+    "extension":{
+        "external":"angular.min.js",
+        "ejfile":"ej.widget.angular.min.js"
+    },
+    "controls":[
+        {
+            "name":"ejButton",
+            "tag":"button",
+            "class":"btn1",
+            "properties":{
+                "text":"Mini",
+                "size":"mini"
+            }
+        }
+    ]
+}

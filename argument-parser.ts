@@ -1,8 +1,6 @@
 /// <reference path="tds/node.d.ts" />
 
-import {EJ_SWITCHES, Args} from './application';
-
-const pkg  = require('./package.json');
+import {EJ_SWITCHES, EJ_VERSION, Args} from './application';
 
 export /**
  * ArgumentParser
@@ -14,16 +12,14 @@ class ArgumentParser {
         this.actual = parameters.slice(2);
         this.updateArgs();
     }
-    version(){
-        return pkg.version;
-    }
+    
     updateArgs(){
         var ix = this.actual.indexOf(EJ_SWITCHES.listcontrols);
         var cInx = this.actual.indexOf(EJ_SWITCHES.create);
         var evx = this.actual.indexOf(EJ_SWITCHES.ejversion);
-        var ev = this.actual.indexOf(EJ_SWITCHES.esversion);
+        var ev = this.actual.indexOf(EJ_SWITCHES.esversion);        
         this.option = {
-            version: this.actual.indexOf(EJ_SWITCHES.version) > -1 ? pkg.version : null, 
+            version: this.actual.indexOf(EJ_SWITCHES.version) > -1 ? EJ_VERSION : null, 
             createEmpty: cInx > -1,
             projectName: this.actual[cInx + 1],
             controList:  ix > -1 ? this.actual[ix+1].split(",") : [],
