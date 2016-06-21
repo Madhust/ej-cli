@@ -2,42 +2,40 @@ doctype html
 html(lang="en")
   head
     title EJ-CLI command line interface for Syncfusion controls
-    
     if useCDN
       link(rel="stylesheet" href="http://cdn.syncfusion.com/" + version + "/themes/"+ theme + "/ej.web.all.min.css")
     else
-      link(rel="stylesheet" href=version + "/themes/"+ theme + "/ej.web.all.min.css")
+      link(rel="stylesheet" href=version + "/themes/web/"+ theme + "/ej.web.all.min.css")
       
-    scripts(src="externals/jquery.1.10.2.min.js")
-    scripts(src="externals/jquery.easing.1.3.min.js")
+    script(src="external/jquery-1.11.3.min.js")
+    script(src="external/jquery.easing.1.3.min.js")
    
     if requireGlobalize
-     scripts(src="externals/jquery.gobalize.min.js")   
+     script(src="external/jquery.gobalize.min.js")   
    
-    scripts(src="externals/jsrender.min.js") 
+    script(src="external/jsrender.min.js") 
    
     if requireExtension
-     scripts(src="externals/" + extension.external)
+     script(src="external/" + extension.external)
     
     if useCDN
-     scripts(src="http://cdn.syncfusion.com/"+ version +"/js/web/ej.web.all.min.js")
+     script(src="http://cdn.syncfusion.com/"+ version +"/js/web/ej.web.all.min.js")
     else
-     scripts(src=version + "/scripts/ej.web.all.min.js")
+     script(src=version + "/scripts/ej.web.all.min.js")
    
     if requireExtension && useCDN
-     scripts(src="http://cdn.syncfusion.com/"+ version +"/js/common/"+extension.ejfile)
+     script(src="http://cdn.syncfusion.com/"+ version +"/js/common/"+extension.ejfile)
     
     if requireExtension && !useCDN
-     scripts(src="scripts/" + extension.ejfile)
+     script(src=version + "/scripts/" + extension.ejfile)
   
   body
    each props, name in controls
-    div <#{props.tag} class=#{props.class}></#{props.tag}>
-   scripts(type="text/javascript")
-    - function toLower(val){ return val.toLowerCase ? val.toLowerCase() : val;  }   
-    |$(function(){
-    each props, name in controls
-        |$(".#{toLower(props.class)}")["#{props.name}"](!{JSON.stringify(props.properties)});
-    |});
+    div #[#{props.tag}(class=props.class)] 
+   each props, name in controls 
+    script.    
+     $(function(){       
+           $(".#{props.class}")["#{props.name}"](!{JSON.stringify(props.properties)});
+     });  
 
   

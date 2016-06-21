@@ -2,7 +2,7 @@
     "requireGlobalize":true,
     "requireExtension": false,
     "useCDN": false,
-    "theme":"flat-azure",    
+    "theme":"default-theme",    
     "extension":{
         "external":"angular.min.js",
         "ejfile":"ej.widget.angular.min.js"
