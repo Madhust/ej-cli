@@ -24,7 +24,7 @@ class EjCli {
             return;
         }
         if(this.opts.createEmpty){            
-             this.shell.createProject(this.opts.projectName, this.opts.ejVersion, this.opts.controList);
+             this.shell.checkEJLocation(this.opts.projectName, this.opts.ejVersion, this.opts.controList);
              return;
         }
         if(this.opts.controList.length != 0){

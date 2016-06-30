@@ -9,6 +9,8 @@ export const EJ_VERSION = pkg.version;
 
 export const PRO_BAT = "project.bat";
 
+export const EJ_LOCATION = "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\";
+
 export const PUG_OPTIONS:{[x:string]: any } = {
              "pretty": true,
              "cache": true,

@@ -2,7 +2,7 @@
     "requireGlobalize":true,
     "requireExtension": false,
     "useCDN": false,
-    "theme":"default-theme",    
+    "theme":"flat-saffron",    
     "extension":{
         "external":"angular.min.js",
         "ejfile":"ej.widget.angular.min.js"

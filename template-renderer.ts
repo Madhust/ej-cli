@@ -9,36 +9,40 @@ import {ArgumentParser} from './argument-parser';
 export /**
  * TemplateRenderer
  */
-class TemplateRenderer {
-    
+    class TemplateRenderer {
+
     compiled: Function;
-    result: string;  
-    data: { [d:string]: any } = {};  
-    constructor(public parser: ArgumentParser) {         
-         this.compile();         
+    result: string;
+    data: { [d: string]: any } = {};
+    cdn: boolean;
+    constructor(public parser: ArgumentParser) {
+        this.compile();
     }
-    renderIndex(){
-       this.generateData(PUG_DATA);    
-       this.result = this.compiled(this.data);     
-       this.writeFile();   
+    renderIndex() {
+        this.generateData(PUG_DATA);
+        this.result = this.compiled(this.data);
+        this.writeFile();
     }
-    compile(){
-        this.compiled = pug.compileFile(INSTALLED_LOCATION + '\\templates\\web.pug', PUG_OPTIONS);   
+    compile() {
+        this.compiled = pug.compileFile(INSTALLED_LOCATION + '\\templates\\web.pug', PUG_OPTIONS);
     }
-    writeFile(){
-       files.writeFile(this.parser.option.projectName + "\\index.html", this.result, (err) => {
-          if(err){
-              console.log(err);
-          }
-          console.log(this.data);
-          console.log("Sample created successfully");
-       });
+    writeFile() {
+        files.writeFile(this.parser.option.projectName + "\\index.html", this.result, (err) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            console.log(this.data);
+            console.log("Sample created successfully");
+        });
     }
-    generateData(source: any){
+    generateData(source: any) {
         this.data["version"] = this.parser.option.ejVersion;
-        for(var prop in source){
+        for (var prop in source) {
             this.data[prop] = source[prop];
         }
+        if (this.cdn)
+            this.data["useCDN"] = this.cdn;
     }
 
 } 

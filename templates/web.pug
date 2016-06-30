@@ -3,17 +3,23 @@ html(lang="en")
   head
     title EJ-CLI command line interface for Syncfusion controls
     if useCDN
-      link(rel="stylesheet" href="http://cdn.syncfusion.com/" + version + "/themes/"+ theme + "/ej.web.all.min.css")
+      link(rel="stylesheet" href="http://cdn.syncfusion.com/" + version + "/js/web/"+ theme + "/ej.web.all.min.css")
     else
       link(rel="stylesheet" href=version + "/themes/web/"+ theme + "/ej.web.all.min.css")
-      
-    script(src="external/jquery-1.11.3.min.js")
-    script(src="external/jquery.easing.1.3.min.js")
-   
-    if requireGlobalize
-     script(src="external/jquery.gobalize.min.js")   
-   
-    script(src="external/jsrender.min.js") 
+    if useCDN
+      script(src="https://code.jquery.com/jquery-1.10.2.min.js")
+      script(src="http://cdn.syncfusion.com/js/assets/external/jquery.easing.1.3.min.js")
+      script(src="http://cdn.syncfusion.com/js/assets/external/jsrender.min.js")
+    else  
+      script(src="external/jquery-1.11.3.min.js")
+      script(src="external/jquery.easing.1.3.min.js")
+      script(src="external/jsrender.min.js") 
+    
+    if requireGlobalize && !useCDN
+     script(src="external/jquery.gobalize.min.js") 
+
+    if requireGlobalize && useCDN
+     script(src="http://cdn.syncfusion.com/js/assets/external/jquery.globalize.min.js")
    
     if requireExtension
      script(src="external/" + extension.external)
